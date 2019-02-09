@@ -18,13 +18,14 @@ class Solution(object):
             revstr = revstr + '-'
             for i in range(0, len(nstringx)):
                 revstr += str(nxlist[len(nstringx) - 1 - i])
-            return int(revstr)
         else:  
             pstringx = stringx.strip('0')                              #positive case
             pxlist = [int(e) for e in pstringx]
             for k in range(0, len(pstringx)):
                 revstr += str(pxlist[len(pstringx) - 1 - k])
-            return int(revstr)
         
-        return(revstr)
+        if (int(revstr) > (2**31 -1)) or (int(revstr) < -(2**31)):
+            return 0
+        else:
+            return(int(revstr))
         
